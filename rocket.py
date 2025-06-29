@@ -1,6 +1,6 @@
 import pygame
 
-class Rocket():
+class Rocket:
     """A class to manage the rocket.
     """
 

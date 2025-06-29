@@ -1,4 +1,3 @@
-class Setting:
+class Settings:
     """rocket setting
     """
-    

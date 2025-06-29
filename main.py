@@ -1,17 +1,21 @@
 import sys
 import pygame
+from rocket import Rocket
+from settings import Settings
 
-class Rocket():
+class RocketGame():
     """A class to manage the rocket game
     """
     def __init__(self) -> None:
         """Initialize the game
         """
         pygame.init()
+        self.settings = Settings()
 
         self.screen = pygame.display.set_mode((800, 500))
         pygame.display.set_caption("Rocket Game")
 
+        self.rocket = Rocket(self)
         self.bg_color = (196, 206, 211)
 
     def run_game(self):
@@ -28,6 +32,7 @@ class Rocket():
         """Update the screen and display the image.
         """
         self.screen.fill(self.bg_color)
+        self.rocket.blitme()
         pygame.display.flip()
 
 
@@ -35,5 +40,5 @@ class Rocket():
 if __name__ == "__main__":
         """make the rocket instance and run the game
         """
-        rg = Rocket()
+        rg = RocketGame()
         rg.run_game()
