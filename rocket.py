@@ -9,7 +9,7 @@ class Rocket():
         """
         pygame.init()
 
-        self.screen = pygame.display.set_mode((320, 320))
+        self.screen = pygame.display.set_mode((800, 500))
         pygame.display.set_caption("Rocket Game")
 
         self.bg_color = (196, 206, 211)
