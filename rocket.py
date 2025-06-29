@@ -1,39 +1,25 @@
-import sys
 import pygame
 
 class Rocket():
-    """A class to manage the rocket game
+    """A class to manage the rocket.
     """
-    def __init__(self) -> None:
-        """Initialize the game
+
+    def __init__(self, rocket_game):
+        """Initialize the rocket and set it's position 
         """
-        pygame.init()
 
-        self.screen = pygame.display.set_mode((320, 320))
-        pygame.display.set_caption("Rocket Game")
+        self.screen = rocket_game.screen
+        self.settings = rocket_game.settings
+        self.screen_rect = rocket_game.screen.get_rect()
 
-        self.bg_color = (196, 206, 211)
+        # Load the image and get it's rect
+        self.image = pygame.image.load('images/rocket.bmp')
+        self.rect = self.image.get_rect()
 
-    def run_game(self):
-        """keep the game running.
+        # Start the rocket at the center on the screen
+        self.rect.center = self.screen_rect.center
+
+    def blitme(self):
+        """Draw the rocket at in current location
         """
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
-                self._update_screen()
-
-
-    def _update_screen(self):
-        """Update the screen and display the image.
-        """
-        self.screen.fill(self.bg_color)
-        pygame.display.flip()
-
-
-
-if __name__ == "__main__":
-        """make the rocket instance and run the game
-        """
-        rg = Rocket()
-        rg.run_game()
+        self.screen.blit(self.image, self.rect)
